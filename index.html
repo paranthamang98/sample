@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider</title>
+    <style>
+        #slider-section {
+            width: 90%;
+            margin: auto;
+            background: azure;
+            transition: all .9s;
+        }
+        .card-item {
+            
+            box-sizing: border-box;
+            transition: all .9s;
+}
+.card-section{
+    background: rgb(138, 221, 221);
+    padding: 10px;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div id="slider-section">
+
+        <div class="card-section">
+            <h1>countrol 1</h1>
+            
+        </div>
+        <div class="card-section">
+            <h1>countrol 2</h1>
+            
+        </div>
+        <div class="card-section">
+            <h1>countrol 3</h1>
+            
+        </div>
+        <div class="card-section">
+            <h1>countrol 4</h1>
+            
+        </div>
+        <div class="card-section">
+            <h1>countrol 5</h1>
+            
+        </div> <div class="card-section">
+            <h1>countrol 6</h1>
+            
+        </div> <div class="card-section">
+            <h1>countrol 7</h1>
+            
+        </div> <div class="card-section">
+            <h1>countrol 8</h1>
+            
+        </div> <div class="card-section">
+            <h1>countrol 9</h1>
+            
+        </div> <div class="card-section">
+            <h1>countrol 10</h1>
+            
+        </div> <div class="card-section">
+            <h1>countrol 11</h1>
+            
+        </div> <div class="card-section">
+            <h1>countrol 12</h1>
+            
+        </div> <div class="card-section">
+            <h1>countrol 13</h1>
+            
+        </div> <div class="card-section">
+            <h1>countrol 14</h1>
+            
+        </div> <div class="card-section">
+            <h1>countrol 15</h1>
+            
+        </div> <div class="card-section">
+            <h1>countrol 16</h1>
+            
+        </div> <div class="card-section">
+            <h1>countrol 17</h1>
+            
+        </div> <div class="card-section">
+            <h1>countrol 18</h1>
+            
+        </div> <div class="card-section">
+            <h1>countrol 19</h1>
+            
+        </div> <div class="card-section">
+            <h1>countrol 20</h1>
+            
+        </div>
+    </div>
+    <div id="countrol">
+
+    </div>
+
+    <script>
+        // select parent class or id 
+        const parentClass = "#slider-section";
+        const cardItemShows = 4;
+        const mobileShow = 1;
+        const tabShow = 2;
+        const lapShow = 3;
+
+
+
+
+
+
+        const responsive = window.innerWidth
+        const cardItemShow = responsive<425 ? mobileShow : responsive<768 ? tabShow : responsive<1366 ? lapShow : cardItemShows;
+
+
+        // select inside card section  all 
+        const sliderParentCard = document.querySelectorAll(`${parentClass} > div`);
+        // select parent section  
+        const sliderParent = document.querySelector(parentClass);
+        // and adding css 
+        sliderParent.setAttribute("style", "display: flex;overflow-x: hidden;padding:10px");
+
+        for( let i=0; i< sliderParentCard.length ; ++i ){
+            var element = document.querySelectorAll(`${parentClass} > div`)[i];
+            var parent = element.parentNode;
+            var wrapper = document.createElement('div');
+            wrapper.classList.add("card-item")
+
+            // set the wrapper as child (instead of the element)
+            parent.replaceChild(wrapper, element);
+            // set element as child of wrapper
+            wrapper.appendChild(element);
+            wrapper.setAttribute("style", `max-width: calc(100% / ${cardItemShow} );min-width: calc(100% / ${cardItemShow} );padding:10px;`);
+           
+        }
+        // for( let i=0; i< sliderParentCard.length ; ++i ){
+
+        //     var num=document.querySelectorAll(`.card-item`)[i];
+        // const count = num.offsetWidth;
+        // console.log("sqs",count);
+        // num.setAttribute("style", `max-width: calc(100% / ${cardItemShow} );min-width: calc(100% / ${cardItemShow} );padding:10px;transform: translateX(-${count}px);`)
+
+        // }
+        
+       
+
+        var nums=1     
+setInterval(()=>{
+//     var num=document.querySelectorAll(`.card-item`);
+// const count = num.offsetWidth;
+
+// for( let i=0; i< sliderParentCard.length ; ++i ){
+//     num[i];
+// // console.log(typeof(Number(counts)));
+
+// // const count = Number(total) * Number(counts) 
+// // console.log("efefe",count)
+
+// num.setAttribute("style", `max-width: calc(100% / ${cardItemShow} );min-width: calc(100% / ${cardItemShow} );padding:10px;transform: translateX(-${count}px);`)
+
+// }
+var total =++nums;
+var count = 300;
+console.log("dwdef",total*count)
+var items =document.querySelector(`.card-item`);
+var countse = items.offsetWidth;
+var count = countse * total;
+
+
+for( let i=0; i< sliderParentCard.length ; ++i ){
+
+            var num=document.querySelectorAll(`.card-item`)[i];
+        num.setAttribute("style", `max-width: calc(100% / ${cardItemShow} );min-width: calc(100% / ${cardItemShow} );padding:10px;transform: translateX(-${count}px);`)
+
+        }
+
+},3000)
+
+// setInterval(()=>{
+   
+// //    var  total=++1;
+// //    var dd=inc*total
+// // console.log(dd)
+// var total =++nums;
+// var count = 300;
+// console.log(total*count)
+
+// },1000)
+    </script>
+
+</body>
+
+</html>
