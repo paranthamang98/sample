@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider</title>
+    <style>
+        #slider-section {
+            width: 90%;
+            margin: auto;
+            background: azure;
+        }
+        .card-item {
+            background: rgb(138, 221, 221);
+}
+    </style>
+</head>
+
+<body>
+
+    <div id="slider-section">
+
+        <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div>
+        <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div>
+        <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div>
+        <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div>
+        <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div> <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div> <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div> <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div> <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div> <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div> <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div> <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div> <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div> <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div> <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div> <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div> <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div> <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div> <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div> <div class="card-section">
+            <h1>countrol</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam et perferendis tempora, a possimus
+                cumque harum maiores!</p>
+        </div>
+    </div>
+    <div id="countrol">
+
+    </div>
+
+    <script>
+        // select parent class or id 
+        const parentClass = "#slider-section";
+        const cardItemShow = 3;
+
+        // select inside card section  all 
+        const sliderParentCard = document.querySelectorAll(`${parentClass} > div`);
+        // select parent section  
+        const sliderParent = document.querySelector(parentClass);
+        // and adding css 
+        sliderParent.setAttribute("style", "display: flex;overflow-x: hidden;gap: 20px");
+
+        for( let i=0; i< sliderParentCard.length ; ++i ){
+            var element = document.querySelectorAll(`${parentClass} > div`)[i];
+            var parent = element.parentNode;
+            var wrapper = document.createElement('div');
+            wrapper.classList.add("card-item")
+
+            // set the wrapper as child (instead of the element)
+            parent.replaceChild(wrapper, element);
+            // set element as child of wrapper
+            wrapper.appendChild(element);
+            wrapper.setAttribute("style", `max-width: calc((100% / ${cardItemShow}) - 20px );min-width: calc((100% / ${cardItemShow}) - 20px );padding:10px;`);
+           
+        }
+
+        setInterval(() =>{
+
+            },1000)
+        
+
+       
+    </script>
+
+</body>
+
+</html>
