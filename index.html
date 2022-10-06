@@ -13,8 +13,14 @@
             background: azure;
         }
         .card-item {
-            background: rgb(138, 221, 221);
+            
+            box-sizing: border-box;
 }
+.card-section{
+    background: rgb(138, 221, 221);
+    padding: 10px;
+}
+
     </style>
 </head>
 
@@ -115,14 +121,26 @@
     <script>
         // select parent class or id 
         const parentClass = "#slider-section";
-        const cardItemShow = 3;
+        const cardItemShows = 4;
+        const mobileShow = 1;
+        const tabShow = 2;
+        const lapShow = 3;
+
+
+
+
+
+
+        const responsive = window.innerWidth
+        const cardItemShow = responsive<425 ? mobileShow : responsive<768 ? tabShow : responsive<1366 ? lapShow : cardItemShows;
+
 
         // select inside card section  all 
         const sliderParentCard = document.querySelectorAll(`${parentClass} > div`);
         // select parent section  
         const sliderParent = document.querySelector(parentClass);
         // and adding css 
-        sliderParent.setAttribute("style", "display: flex;overflow-x: hidden;gap: 20px");
+        sliderParent.setAttribute("style", "display: flex;overflow-x: hidden;padding:10px");
 
         for( let i=0; i< sliderParentCard.length ; ++i ){
             var element = document.querySelectorAll(`${parentClass} > div`)[i];
@@ -134,16 +152,26 @@
             parent.replaceChild(wrapper, element);
             // set element as child of wrapper
             wrapper.appendChild(element);
-            wrapper.setAttribute("style", `max-width: calc((100% / ${cardItemShow}) - 20px );min-width: calc((100% / ${cardItemShow}) - 20px );padding:10px;`);
+            wrapper.setAttribute("style", `max-width: calc(100% / ${cardItemShow} );min-width: calc(100% / ${cardItemShow} );padding:10px;`);
            
         }
+        for( let i=0; i< sliderParentCard.length ; ++i ){
 
-        setInterval(() =>{
+            var num=document.querySelectorAll(`.card-item`)[i];
+        const count = num.offsetWidth;
+        console.log("sqs",count);
+        num.setAttribute("style", `max-width: calc(100% / ${cardItemShow} );min-width: calc(100% / ${cardItemShow} );padding:10px;transform: translateX(-${count}px);`)
 
-            },1000)
+        }
         
-
        
+       
+var inc=1
+// setInterval(()=>{
+//    var  total=num++;
+//    var dd=inc*total
+// console.log(dd)
+// },1000)
     </script>
 
 </body>
